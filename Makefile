@@ -71,10 +71,10 @@ default: all
 all: $(LIB_NAME) simg2img simg2simg img2simg append2simg
 
 install: all
-	install -d $(PREFIX)/bin $(PREFIX)/lib $(PREFIX)/include/sparse
-	install -m 0755 $(BINS) $(PREFIX)/bin
-	install -m 0755 $(SLIB) $(PREFIX)/lib
-	install -m 0644 $(HEADERS) $(PREFIX)/include/sparse
+	install -d $(DESTDIR)$(PREFIX)/bin $(DESTDIR)$(PREFIX)/lib $(DESTDIR)$(PREFIX)/include/sparse
+	install -m 0755 $(BINS) $(DESTDIR)$(PREFIX)/bin
+	install -m 0755 $(SLIB) $(DESTDIR)$(PREFIX)/lib
+	install -m 0644 $(HEADERS) $(DESTDIR)$(PREFIX)/include/sparse
 
 $(LIB_NAME): $(LIB_OBJS)
 		$(AR) rc $(SLIB) $(LIB_OBJS)
