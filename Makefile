@@ -21,7 +21,7 @@ DEP_CXX  ?= g++
 AR       ?= ar
 RANLIB   ?= ranlib
 STRIP    ?= strip
-CPPFLAGS += -std=gnu++17 -O2 -W -Wall -Werror -Wextra
+CXXFLAGS += -std=gnu++17 -O2 -W -Wall -Werror -Wextra
 
 # libsparse
 LIB_NAME = sparse
@@ -81,19 +81,19 @@ $(LIB_NAME): $(LIB_OBJS)
 		$(RANLIB) $(SLIB)
 
 simg2img: $(SIMG2IMG_SRCS) $(LIB_NAME)
-		$(CXX) $(CPPFLAGS) $(LIB_INCS) -o simg2img $< $(LDFLAGS)
+		$(CXX) $(CXXFLAGS) $(LIB_INCS) -o simg2img $< $(LDFLAGS)
 
 simg2simg: $(SIMG2SIMG_SRCS) $(LIB_NAME)
-		$(CXX) $(CPPFLAGS) $(LIB_INCS) -o simg2simg $< $(LDFLAGS)
+		$(CXX) $(CXXFLAGS) $(LIB_INCS) -o simg2simg $< $(LDFLAGS)
 
 img2simg: $(IMG2SIMG_SRCS) $(LIB_NAME)
-		$(CXX) $(CPPFLAGS) $(LIB_INCS) -o img2simg $< $(LDFLAGS)
+		$(CXX) $(CXXFLAGS) $(LIB_INCS) -o img2simg $< $(LDFLAGS)
 
 append2simg: $(APPEND2SIMG_SRCS) $(LIB_NAME)
-		$(CXX) $(CPPFLAGS) $(LIB_INCS) -o append2simg $< $(LDFLAGS)
+		$(CXX) $(CXXFLAGS) $(LIB_INCS) -o append2simg $< $(LDFLAGS)
 
 %.o: %.cpp .depend
-		$(CXX) $(CPPFLAGS) $(LIB_INCS) -c $< -o $@
+		$(CXX) $(CXXFLAGS) $(LIB_INCS) -c $< -o $@
 
 clean:
 		$(RM) -f *.o *.a simg2img simg2simg img2simg append2simg .depend
